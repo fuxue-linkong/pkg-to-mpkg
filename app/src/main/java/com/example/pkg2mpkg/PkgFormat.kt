@@ -22,7 +22,7 @@ object PkgFormat {
 
     data class Entry(
         val fullPath: String,
-        val bytes: ByteArray,
+        var bytes: ByteArray,
         var offset: Int = 0,
         var length: Int = 0
     ) {
