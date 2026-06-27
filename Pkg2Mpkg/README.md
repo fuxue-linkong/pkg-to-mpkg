@@ -4,14 +4,27 @@
 
 ## 构建方式
 
-1. 用 Android Studio（ Hedgehog 或更高）打开 `Pkg2Mpkg` 文件夹。
-2. 等待 Gradle 同步完成。
+### 方式一：GitHub Actions 自动构建（推荐）
+
+项目已配置 `.github/workflows/build.yml`，每次 push 到 `main`/`master` 分支、发起 PR 或手动触发 `workflow_dispatch` 时都会自动构建 Debug APK。
+
+1. 把代码推送到 GitHub。
+2. 进入仓库 **Actions → Build APK**。
+3. 点击 **Run workflow** 或等待自动触发。
+4. 构建完成后在 **Artifacts** 中下载 `app-debug.apk`。
+
+### 方式二：Android Studio 本地构建
+
+1. 用 Android Studio（Hedgehog 或更高）打开 `Pkg2Mpkg` 文件夹。
+2. 等待 Gradle 同步完成（若提示没有 wrapper，Android Studio 会自动生成，或手动运行 `gradle wrapper --gradle-version 8.7`）。
 3. 点击 **Run** 或执行 **Build → Generate Signed Bundle / APK**。
 
-命令行构建（需配置 `ANDROID_HOME`）：
+### 方式三：命令行构建
+
+需配置 `ANDROID_HOME`，并安装 Gradle 8.7：
 
 ```bash
-./gradlew assembleDebug
+gradle assembleDebug
 ```
 
 ## 使用方式
